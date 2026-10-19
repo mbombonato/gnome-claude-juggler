@@ -1,3 +1,5 @@
+<img src="docs/brand/icon-256.png" alt="" width="96" align="right">
+
 # Claude Juggler — GNOME Shell extension
 
 Juggle several Claude accounts (Pro, Max, Team…) from the GNOME top bar: see the
