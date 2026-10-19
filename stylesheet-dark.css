@@ -1,0 +1,54 @@
+@import url("base.css");
+
+/* Dark palette. "ok" bars use the system accent color. */
+
+.cu-hero-sub, .cu-row-sub, .cu-tile-reset, .cu-tile-caption, .cu-tile-unit,
+.cu-caption, .cu-footer-status, .cu-row-tag, .cu-row-reset, .cu-extra-name,
+.cu-banner-reason, .cu-empty-sub, .cu-insight-text { color: rgba(255,255,255,0.62); }
+
+.cu-segmented { background-color: rgba(255,255,255,0.06); }
+.cu-icon-button:hover, .cu-icon-button:focus { background-color: rgba(255,255,255,0.10); }
+.cu-segment-active, .cu-segment-active:hover { background-color: rgba(255,255,255,0.16); }
+
+.cu-hero { background-color: rgba(255,255,255,0.045); border: 1px solid rgba(255,255,255,0.07); }
+.cu-hero-suggested { border-color: rgba(217,119,87,0.55); }
+.cu-tile { background-color: rgba(255,255,255,0.06); }
+.cu-insight { background-color: rgba(255,255,255,0.05); }
+
+.cu-plan { background-color: rgba(217,119,87,0.20); color: #f2ac8f; }
+.cu-brand-text { color: #ec9a78; }
+
+.cu-chip { background-color: rgba(255,255,255,0.08); }
+.cu-chip:hover, .cu-chip:focus { background-color: rgba(255,255,255,0.14); }
+.cu-chip-flat { background-color: transparent; }
+.cu-chip-flat:hover, .cu-chip-flat:focus { background-color: rgba(255,255,255,0.08); }
+
+.cu-rename-entry { background-color: rgba(255,255,255,0.08); }
+
+.cu-bar { background-color: rgba(255,255,255,0.12); }
+.cu-bar-fill.cu-ok { background-color: -st-accent-color; }
+.cu-bar-fill.cu-warn { background-color: #ffa348; }
+.cu-bar-fill.cu-crit { background-color: #ff7b63; }
+
+.cu-tile-number.cu-warn, .cu-row-pct.cu-warn, .cu-row-sub.cu-warn { color: #ffbe6f; }
+.cu-tile-number.cu-crit, .cu-row-pct.cu-crit { color: #ff8f80; }
+
+.cu-insight-icon { color: rgba(255,255,255,0.62); }
+.cu-insight.cu-ok .cu-insight-icon { color: -st-accent-color; }
+.cu-insight.cu-warn .cu-insight-icon { color: #ffa348; }
+.cu-insight.cu-crit .cu-insight-icon { color: #ff7b63; }
+
+.cu-banner { background-color: rgba(217,119,87,0.16); }
+.cu-banner-icon { color: #ec9a78; }
+.cu-banner-blocked { background-color: rgba(255,255,255,0.06); }
+.cu-banner-blocked .cu-banner-icon { color: #ffa348; }
+
+.cu-row-button:hover, .cu-row-button:focus { background-color: rgba(255,255,255,0.07); }
+.cu-row-pinned { background-color: rgba(255,255,255,0.045); }
+.cu-star { color: #f8c54e; }
+.cu-pin { color: -st-accent-color; }
+.cu-row-warning { color: #ffa348; }
+
+.cu-row-blocked, .cu-row-reset-blocked { color: #ff8f80; }
+.cu-error { color: #ff8f80; }
+.cu-footer { border-color: rgba(255,255,255,0.08); }

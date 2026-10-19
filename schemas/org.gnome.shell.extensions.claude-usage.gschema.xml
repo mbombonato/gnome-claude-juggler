@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.claude-usage" path="/org/gnome/shell/extensions/claude-usage/">
+    <key name="accounts" type="s">
+      <default>'[]'</default>
+      <summary>Registered accounts (JSON)</summary>
+    </key>
+    <key name="refresh-interval" type="u">
+      <range min="1" max="120"/>
+      <default>5</default>
+      <summary>Refresh interval (minutes)</summary>
+    </key>
+    <key name="panel-mode" type="s">
+      <choices>
+        <choice value="full"/>
+        <choice value="named"/>
+        <choice value="percent"/>
+        <choice value="icon"/>
+      </choices>
+      <default>'full'</default>
+      <summary>What to show in the panel</summary>
+    </key>
+    <key name="panel-metrics" type="s">
+      <choices>
+        <choice value="session"/>
+        <choice value="weekly"/>
+        <choice value="both"/>
+      </choices>
+      <default>'session'</default>
+      <summary>Percentages shown in the panel</summary>
+    </key>
+    <key name="selected-account" type="s">
+      <default>''</default>
+      <summary>Account pinned to the panel (empty = follow the suggestion)</summary>
+    </key>
+    <key name="popup-layout" type="s">
+      <choices>
+        <choice value="detailed"/>
+        <choice value="compact"/>
+      </choices>
+      <default>'detailed'</default>
+      <summary>Menu layout</summary>
+    </key>
+    <key name="language" type="s">
+      <default>''</default>
+      <summary>Interface language (empty = system; en, pt_BR, es)</summary>
+    </key>
+    <key name="notify-recommendation" type="b">
+      <default>false</default>
+      <summary>Notify when the suggested account changes</summary>
+    </key>
+    <key name="debug" type="b">
+      <default>false</default>
+      <summary>Log every API request and its reason to the journal</summary>
+    </key>
+    <key name="claude-path" type="s">
+      <default>''</default>
+      <summary>Path to the claude executable (empty = detect)</summary>
+    </key>
+    <key name="terminal-command" type="s">
+      <default>''</default>
+      <summary>Terminal command used for login (empty = detect)</summary>
+    </key>
+  </schema>
+</schemalist>

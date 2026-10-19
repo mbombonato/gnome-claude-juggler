@@ -1,0 +1,146 @@
+/* Layout shared by both themes. Colors live in stylesheet-dark.css and
+ * stylesheet-light.css, which import this file (GNOME Shell picks the file
+ * for the current theme and reloads it when the theme changes). */
+
+/* ---------- panel: ( ✱ 62% │ 33% ) ---------- */
+.cu-panel-button { -natural-hpadding: 6px; -minimum-hpadding: 4px; }
+
+.cu-pill {
+  spacing: 7px;
+  padding: 2px 10px 2px 8px;
+  border-radius: 99px;
+  /* neutral grey: works on both the light (Yaru) and the dark panel */
+  background-color: rgba(127,127,127,0.16);
+  border: 1px solid rgba(127,127,127,0.22);
+}
+.cu-pill-icon { icon-size: 14px; }
+.cu-pill-name { font-size: 0.9em; font-weight: bold; }
+.cu-pill-metric { spacing: 2px; }
+.cu-pill-line { spacing: 4px; }
+.cu-pill-pct { font-size: 0.92em; font-weight: bold; font-feature-settings: "tnum"; }
+.cu-pill-reset { font-size: 0.8em; font-weight: normal; font-feature-settings: "tnum"; }
+.cu-pill-divider { width: 1px; height: 12px; background-color: rgba(127,127,127,0.45); }
+.cu-bar.cu-bar-pill { height: 2px; background-color: rgba(127,127,127,0.35); }
+/* mid tones: readable on both a light and a dark panel */
+.cu-pill-pct.cu-warn { color: #ff8c1a; }
+.cu-pill-pct.cu-crit { color: #f5564a; }
+
+/* ---------- menu ---------- */
+.cu-menu { padding: 6px 4px; }
+.cu-menu:hover, .cu-menu:focus, .cu-menu:active { background-color: transparent; }
+.cu-content { width: 360px; spacing: 12px; }
+
+.cu-header { spacing: 8px; padding: 0 2px; }
+.cu-header-icon { icon-size: 18px; }
+.cu-title { font-size: 1.05em; font-weight: 800; }
+
+.cu-segmented { padding: 2px; spacing: 2px; border-radius: 10px; }
+.cu-icon-button { padding: 6px; border-radius: 9px; }
+.cu-icon-button-icon { icon-size: 15px; }
+.cu-segment { padding: 4px 8px; border-radius: 8px; }
+
+/* account card */
+.cu-hero { padding: 14px; spacing: 12px; border-radius: 18px; }
+.cu-hero-head { spacing: 12px; }
+.cu-hero-titles { spacing: 2px; }
+.cu-hero-name { font-size: 1.2em; font-weight: 800; }
+.cu-hero-sub { font-size: 0.86em; }
+.cu-plan {
+  font-size: 0.72em;
+  font-weight: bold;
+  padding: 3px 9px;
+  border-radius: 99px;
+}
+
+.cu-avatar { width: 30px; height: 30px; border-radius: 99px; }
+.cu-avatar-lg { width: 42px; height: 42px; }
+.cu-avatar-letter { color: #ffffff; font-weight: bold; }
+.cu-avatar-lg .cu-avatar-letter { font-size: 1.25em; }
+
+.cu-tiles { spacing: 8px; }
+.cu-tile { padding: 12px 13px; spacing: 6px; border-radius: 14px; }
+.cu-tile-caption { font-size: 0.7em; font-weight: bold; letter-spacing: 1px; }
+.cu-tile-value { spacing: 1px; }
+.cu-tile-number { font-size: 2em; font-weight: 800; font-feature-settings: "tnum"; }
+.cu-tile-unit { font-size: 0.95em; font-weight: bold; padding-bottom: 6px; }
+.cu-tile-reset { font-size: 0.78em; font-feature-settings: "tnum"; }
+
+.cu-extra { spacing: 8px; padding: 0 4px; }
+.cu-extra-name { font-size: 0.85em; }
+.cu-extra-pct { width: 36px; font-size: 0.85em; font-weight: bold; text-align: right; font-feature-settings: "tnum"; }
+
+.cu-insight { spacing: 8px; padding: 8px 10px; border-radius: 11px; }
+.cu-insight-icon { icon-size: 14px; }
+.cu-insight-text { font-size: 0.85em; }
+
+.cu-actions { spacing: 6px; }
+.cu-chip { padding: 5px 11px; border-radius: 99px; }
+.cu-chip-box { spacing: 5px; }
+.cu-chip-icon { icon-size: 12px; }
+.cu-chip-label { font-size: 0.85em; font-weight: bold; }
+.cu-chip-flat { padding: 4px 9px; }
+
+.cu-rename-entry { font-size: 1.05em; font-weight: bold; padding: 4px 10px; border-radius: 9px; }
+
+/* bars */
+.cu-bar { border-radius: 99px; }
+.cu-bar-tile { height: 6px; }
+.cu-bar-row { height: 4px; }
+.cu-bar-fill { border-radius: 99px; min-width: 0; }
+
+/* suggestion (compact layout) */
+.cu-banner { padding: 12px 14px; spacing: 10px; border-radius: 16px; }
+.cu-banner-icon { icon-size: 16px; }
+.cu-banner-text { spacing: 3px; }
+.cu-banner-title { font-size: 1.05em; font-weight: 800; }
+.cu-banner-reason { font-size: 0.86em; }
+
+/* account list */
+.cu-section-head { padding: 0 4px; }
+.cu-caption { font-size: 0.7em; font-weight: bold; letter-spacing: 1px; }
+.cu-list { spacing: 2px; }
+.cu-row-button { padding: 8px 10px; border-radius: 12px; }
+.cu-row { spacing: 10px; }
+.cu-row-titles { spacing: 1px; }
+.cu-row-name-line { spacing: 5px; }
+.cu-row-name { font-weight: bold; }
+.cu-row-sub { font-size: 0.78em; }
+.cu-star { icon-size: 13px; }
+.cu-pin { icon-size: 12px; }
+.cu-row-meters { spacing: 4px; }
+.cu-row-meter { spacing: 6px; }
+.cu-row-tag { width: 16px; font-size: 0.72em; }
+.cu-row-pct { width: 34px; font-size: 0.78em; font-weight: bold; text-align: right; font-feature-settings: "tnum"; }
+.cu-row-reset { width: 56px; font-size: 0.72em; font-feature-settings: "tnum"; }
+.cu-row-warning { icon-size: 16px; }
+.cu-row-blocked { icon-size: 12px; }
+.cu-row-reset-blocked { font-weight: bold; }
+
+/* empty state, buttons, footer */
+.cu-empty { spacing: 10px; padding: 18px 12px 8px; }
+.cu-empty-icon { icon-size: 36px; }
+.cu-empty-title { font-size: 1.15em; font-weight: 800; }
+.cu-empty-sub { font-size: 0.88em; text-align: center; }
+
+.cu-primary {
+  padding: 8px 20px;
+  border-radius: 99px;
+  font-weight: bold;
+  background-color: -st-accent-color;
+  color: -st-accent-fg-color;
+}
+.cu-primary:hover, .cu-primary:focus { box-shadow: inset 0 0 0 100px rgba(255,255,255,0.12); }
+
+.cu-error { font-size: 0.85em; }
+
+.cu-footer { spacing: 6px; padding: 8px 0 0 6px; border-top-width: 1px; }
+.cu-footer-status { font-size: 0.8em; }
+.cu-body { spacing: 12px; }
+.cu-tooltip {
+  padding: 5px 9px;
+  border-radius: 8px;
+  font-size: 0.85em;
+  color: #ffffff;
+  background-color: rgba(24,24,24,0.95);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}

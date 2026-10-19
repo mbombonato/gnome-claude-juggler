@@ -1,0 +1,547 @@
+# Claude Usage — GNOME Shell extension
+#
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+
+#: extension.js:67
+msgid "today {time}"
+msgstr "hoy {time}"
+
+#: extension.js:70
+msgid "tomorrow {time}"
+msgstr "mañana {time}"
+
+#: extension.js:72
+msgid "%a %b %-d %H:%M"
+msgstr "%a %d/%m %H:%M"
+
+#: extension.js:93 extension.js:95
+msgid "frees up {when}"
+msgstr "se libera {when}"
+
+#: extension.js:96 extension.js:105
+msgid "Session"
+msgstr "Sesión"
+
+#: extension.js:96
+msgid "Week"
+msgstr "Semana"
+
+#: extension.js:100
+msgid "at this pace, hits the limit in ~{time}"
+msgstr "a este ritmo, alcanza el límite en ~{time}"
+
+#: extension.js:105
+msgid "on track for ~{pct}% by reset"
+msgstr "en camino a ~{pct}% antes del reinicio"
+
+#: extension.js:308
+msgid "Copied: {text}"
+msgstr "Copiado: {text}"
+
+#: extension.js:383 extension.js:549 extension.js:549 extension.js:704
+msgid "Pinned to panel"
+msgstr "Fijada en el panel"
+
+#: extension.js:383 extension.js:544
+msgid "Next to free up"
+msgstr "Próxima en liberarse"
+
+#: extension.js:383 extension.js:544 extension.js:702
+msgid "Suggested"
+msgstr "Sugerida"
+
+#: extension.js:394
+msgid "Claude: switch accounts"
+msgstr "Claude: cambia de cuenta"
+
+#: extension.js:394
+msgid "Use {name} — {reason}"
+msgstr "Usa {name} — {reason}"
+
+#: extension.js:427
+msgid "ACCOUNTS"
+msgstr "CUENTAS"
+
+#: extension.js:427
+msgid "OTHER ACCOUNTS"
+msgstr "OTRAS CUENTAS"
+
+#: extension.js:428
+msgid "Add"
+msgstr "Añadir"
+
+#: extension.js:446 prefs.js:274
+msgid "Detailed"
+msgstr "Detallado"
+
+#: extension.js:446 prefs.js:274
+msgid "Compact"
+msgstr "Compacto"
+
+#: extension.js:456
+msgid "Refresh"
+msgstr "Actualizar"
+
+#: extension.js:461
+msgid "Quit — turn the extension off"
+msgstr "Salir: desactiva la extensión"
+
+#: extension.js:488
+msgid "Use {name}"
+msgstr "Usa {name}"
+
+#: extension.js:488
+msgid "No usage data yet…"
+msgstr "Aún no hay datos de uso…"
+
+#: extension.js:495
+msgid "Panel shows {name} · unpin"
+msgstr "Panel en {name} · desfijar"
+
+#: extension.js:498 extension.js:603
+msgid "Copy"
+msgstr "Copiar"
+
+#: extension.js:506
+msgid "All accounts are disabled"
+msgstr "Todas las cuentas están desactivadas"
+
+#: extension.js:506 prefs.js:89
+msgid "No accounts yet"
+msgstr "Aún no hay cuentas"
+
+#: extension.js:508
+msgid "Enable an account in the settings to see its usage here."
+msgstr "Activa una cuenta en la configuración para ver su uso aquí."
+
+#: extension.js:509
+msgid "Add your Claude accounts: a terminal opens to log in to each one."
+msgstr "Añade tus cuentas de Claude: se abre una terminal para iniciar sesión en cada una."
+
+#: extension.js:513 extension.js:766
+msgid "Settings"
+msgstr "Configuración"
+
+#: extension.js:513 prefs.js:37
+msgid "Add account"
+msgstr "Añadir cuenta"
+
+#: extension.js:551
+msgid "Click an account to pin it to the panel"
+msgstr "Haz clic en una cuenta para fijarla en el panel"
+
+#: extension.js:562
+msgid "Login required"
+msgstr "Inicio de sesión necesario"
+
+#: extension.js:562
+msgid "Waiting for login in the terminal…"
+msgstr "Esperando el inicio de sesión en la terminal…"
+
+#: extension.js:563
+msgid "Loading…"
+msgstr "Cargando…"
+
+#: extension.js:568 prefs.js:186
+msgid "Log in"
+msgstr "Iniciar sesión"
+
+#: extension.js:576
+msgid "SESSION"
+msgstr "SESIÓN"
+
+#: extension.js:577
+msgid "WEEK"
+msgstr "SEMANA"
+
+#: extension.js:597
+msgid "Back"
+msgstr "Volver"
+
+#: extension.js:602
+msgid "Rename"
+msgstr "Renombrar"
+
+#: extension.js:605
+msgid "Unpin"
+msgstr "Desfijar"
+
+#: extension.js:627
+msgid "no data"
+msgstr "sin datos"
+
+#: extension.js:629
+msgid "starts on next use"
+msgstr "empieza con el próximo uso"
+
+#: extension.js:631
+msgid "in {time}"
+msgstr "en {time}"
+
+#: extension.js:639
+msgid "Week {model}"
+msgstr "Semana {model}"
+
+#: extension.js:648
+msgid "Nickname"
+msgstr "Alias"
+
+#: extension.js:655
+msgid "Enter saves · Esc cancels · empty restores the email"
+msgstr "Enter guarda · Esc cancela · vacío vuelve al correo"
+
+#: extension.js:698
+msgid "Weekly limit reached — frees up {when}"
+msgstr "Límite semanal alcanzado: se libera {when}"
+
+#: extension.js:699
+msgid "Session limit reached — frees up {when}"
+msgstr "Límite de sesión alcanzado: se libera {when}"
+
+#: extension.js:710
+msgid "excluded from suggestion"
+msgstr "fuera de la sugerencia"
+
+#: extension.js:712
+msgid "login required"
+msgstr "inicio de sesión necesario"
+
+#: extension.js:712
+msgid "waiting for login"
+msgstr "esperando inicio de sesión"
+
+#: extension.js:755
+msgid "Refreshing…"
+msgstr "Actualizando…"
+
+#: extension.js:757
+msgid "Updated {time}"
+msgstr "Actualizado {time}"
+
+#: extension.js:760
+msgid "API frees up at {time}"
+msgstr "La API se libera a las {time}"
+
+#: extension.js:762
+msgid "Usage page"
+msgstr "Página de uso"
+
+#: prefs.js:30
+msgid "Accounts"
+msgstr "Cuentas"
+
+#: prefs.js:33
+msgid "Claude accounts"
+msgstr "Cuentas de Claude"
+
+#: prefs.js:34
+msgid "Each account has its own session folder (CLAUDE_CONFIG_DIR). Logging in opens a terminal running \"claude auth login\"."
+msgstr "Cada cuenta tiene su propia carpeta de sesión (CLAUDE_CONFIG_DIR). El inicio de sesión abre una terminal con \"claude auth login\"."
+
+#: prefs.js:50
+msgid "Link an existing folder"
+msgstr "Vincular una carpeta existente"
+
+#: prefs.js:51
+msgid "Track an account already logged in elsewhere (e.g. the default ~/.claude used by Claude Code). It stays read-only: the token is renewed by whoever uses the folder, not by the extension."
+msgstr "Sigue una cuenta que ya tiene sesión iniciada en otra carpeta (p. ej., el ~/.claude predeterminado de Claude Code). Queda en solo lectura: el token lo renueva quien usa la carpeta, no la extensión."
+
+#: prefs.js:54
+msgid "Claude Code folder"
+msgstr "Carpeta de Claude Code"
+
+#: prefs.js:54
+msgid "Must contain .credentials.json"
+msgstr "Debe contener .credentials.json"
+
+#: prefs.js:55
+msgid "Link ~/.claude"
+msgstr "Vincular ~/.claude"
+
+#: prefs.js:57
+msgid "Choose folder…"
+msgstr "Elegir carpeta…"
+
+#: prefs.js:59
+msgid "Claude folder (CLAUDE_CONFIG_DIR)"
+msgstr "Carpeta de Claude (CLAUDE_CONFIG_DIR)"
+
+#: prefs.js:74
+msgid "Using an account in the terminal"
+msgstr "Cómo usar una cuenta en la terminal"
+
+#: prefs.js:75
+msgid "Run Claude Code pointing at the account folder, for example:\nCLAUDE_CONFIG_DIR=&lt;folder&gt; claude\n“Copy” in the panel menu copies this command."
+msgstr "Ejecuta Claude Code apuntando a la carpeta de la cuenta, por ejemplo:\nCLAUDE_CONFIG_DIR=&lt;carpeta&gt; claude\n“Copiar” en el menú del panel copia este comando."
+
+#: prefs.js:90
+msgid "Click “Add account” and log in in the terminal that opens."
+msgstr "Haz clic en “Añadir cuenta” e inicia sesión en la terminal que se abre."
+
+#: prefs.js:115
+msgid "disabled"
+msgstr "desactivada"
+
+#: prefs.js:123
+msgid "login pending"
+msgstr "inicio de sesión pendiente"
+
+#: prefs.js:125
+msgid "linked (read-only)"
+msgstr "vinculada (solo lectura)"
+
+#: prefs.js:138
+msgid "Disabled accounts are not refreshed or shown, but keep their login and settings"
+msgstr "Las cuentas desactivadas no se consultan ni se muestran, pero conservan el inicio de sesión y la configuración"
+
+#: prefs.js:143
+msgid "Nickname (optional)"
+msgstr "Alias (opcional)"
+
+#: prefs.js:154
+msgid "Include in suggestion"
+msgstr "Incluir en la sugerencia"
+
+#: prefs.js:155
+msgid "Turn off for accounts you only want to monitor"
+msgstr "Desactívalo para cuentas que solo quieres seguir"
+
+#: prefs.js:162
+msgid "Capacity weight"
+msgstr "Peso de capacidad"
+
+#: prefs.js:163
+msgid "How much this account is worth compared to a Pro (0 = automatic: {weight})"
+msgstr "Cuánto vale esta cuenta en comparación con una Pro (0 = automático: {weight})"
+
+#: prefs.js:171
+msgid "Session folder"
+msgstr "Carpeta de sesión"
+
+#: prefs.js:175
+msgid "Open folder"
+msgstr "Abrir carpeta"
+
+#: prefs.js:180
+msgid "Actions"
+msgstr "Acciones"
+
+#: prefs.js:182
+msgid "Move up"
+msgstr "Subir"
+
+#: prefs.js:184
+msgid "Move down"
+msgstr "Bajar"
+
+#: prefs.js:186
+msgid "Log in again"
+msgstr "Volver a iniciar sesión"
+
+#: prefs.js:188 prefs.js:228
+msgid "Remove"
+msgstr "Eliminar"
+
+#: prefs.js:210
+msgid "This folder is already registered"
+msgstr "Esta carpeta ya está registrada"
+
+#: prefs.js:214
+msgid "No .credentials.json in this folder — log in there first"
+msgstr "No hay .credentials.json en esta carpeta: inicia sesión en ella primero"
+
+#: prefs.js:222
+msgid "Remove {name}?"
+msgstr "¿Eliminar {name}?"
+
+#: prefs.js:224
+msgid "The account will no longer be tracked. The linked folder is not changed."
+msgstr "La cuenta dejará de seguirse. La carpeta vinculada no se modifica."
+
+#: prefs.js:225
+msgid "The saved session for this account (folder and credentials) will be deleted. This does not log out other places where the account is in use."
+msgstr "Se borrará la sesión guardada de esta cuenta (carpeta y credenciales). Esto no cierra la sesión en otros lugares donde se usa la cuenta."
+
+#: prefs.js:227
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: prefs.js:238
+msgid "General"
+msgstr "General"
+
+#: prefs.js:240
+msgid "Panel"
+msgstr "Panel"
+
+#: prefs.js:242
+msgid "Percent + reset time"
+msgstr "% + tiempo hasta el reinicio"
+
+#: prefs.js:243
+msgid "Name + percent + reset"
+msgstr "Nombre + % + reinicio"
+
+#: prefs.js:244
+msgid "Percent only"
+msgstr "Solo %"
+
+#: prefs.js:245
+msgid "Icon only"
+msgstr "Solo icono"
+
+#: prefs.js:248
+msgid "Show in panel"
+msgstr "Mostrar en el panel"
+
+#: prefs.js:249
+msgid "Pinned account, or the suggested one"
+msgstr "Cuenta fijada, o la sugerida"
+
+#: prefs.js:257
+msgid "Language"
+msgstr "Idioma"
+
+#: prefs.js:258
+msgid "Reopen the preferences to apply it here; the panel menu updates right away"
+msgstr "Vuelve a abrir las preferencias para aplicarlo aquí; el menú del panel cambia al instante"
+
+#: prefs.js:259
+msgid "Automatic (system)"
+msgstr "Automático (sistema)"
+
+#: prefs.js:265
+msgid "Session (5h)"
+msgstr "Sesión (5h)"
+
+#: prefs.js:265
+msgid "Week (7d)"
+msgstr "Semana (7d)"
+
+#: prefs.js:265
+msgid "Both"
+msgstr "Ambas"
+
+#: prefs.js:267
+msgid "Percentages in panel"
+msgstr "Porcentajes en el panel"
+
+#: prefs.js:276
+msgid "Menu layout"
+msgstr "Diseño del menú"
+
+#: prefs.js:277
+msgid "You can also switch it right in the menu"
+msgstr "También puedes cambiarlo directamente en el menú"
+
+#: prefs.js:285
+msgid "Refresh every (minutes)"
+msgstr "Actualizar cada (minutos)"
+
+#: prefs.js:286
+msgid "Short intervals may hit the API rate limit"
+msgstr "Los intervalos cortos pueden alcanzar el límite de la API"
+
+#: prefs.js:293
+msgid "Notify when the suggestion changes"
+msgstr "Notificar cuando cambie la sugerencia"
+
+#: prefs.js:299
+msgid "Advanced"
+msgstr "Avanzado"
+
+#: prefs.js:301
+msgid "claude executable (detected: {path})"
+msgstr "Ejecutable de claude (detectado: {path})"
+
+#: prefs.js:301
+msgid "not found"
+msgstr "no encontrado"
+
+#: prefs.js:308
+msgid "Terminal command (e.g. ptyxis --new-window --)"
+msgstr "Comando de la terminal (p. ej., ptyxis --new-window --)"
+
+#: lib/accounts.js:35
+msgid "Not logged in"
+msgstr "Sin sesión iniciada"
+
+#: lib/api.js:80
+msgid "No refresh token"
+msgstr "Sin refresh token"
+
+#: lib/api.js:98
+msgid "Session expired — please log in again"
+msgstr "Sesión caducada: vuelve a iniciar sesión"
+
+#: lib/api.js:121
+msgid "Login pending"
+msgstr "Inicio de sesión pendiente"
+
+#: lib/api.js:129
+msgid "Token expired — open Claude with this account to renew it"
+msgstr "Token caducado: abre Claude con esta cuenta para renovarlo"
+
+#: lib/api.js:175
+msgid "model"
+msgstr "modelo"
+
+#: lib/launcher.js:51
+msgid "The \"claude\" executable was not found. Set its path in the preferences."
+msgstr "No se encontró el ejecutable \"claude\". Configura su ruta en las preferencias."
+
+#: lib/launcher.js:54
+msgid "No terminal found. Set the terminal command in the preferences."
+msgstr "No se encontró ninguna terminal. Configura el comando en las preferencias."
+
+#: lib/launcher.js:75
+msgid "Claude account login — folder:"
+msgstr "Inicio de sesión de cuenta de Claude — carpeta:"
+
+#: lib/launcher.js:76
+msgid "Done! The extension will detect the account in a moment."
+msgstr "¡Listo! La extensión detectará la cuenta en un momento."
+
+#: lib/launcher.js:77
+msgid "Login failed"
+msgstr "Falló el inicio de sesión"
+
+#: lib/launcher.js:78
+msgid "Press Enter to close."
+msgstr "Pulsa Enter para cerrar."
+
+#: lib/manager.js:36
+msgid "API rate limited — data from {time}, retrying at {retry}"
+msgstr "La API limitó las consultas: datos de las {time}, nuevo intento a las {retry}"
+
+#: lib/manager.js:37
+msgid "API rate limited — retrying at {retry}"
+msgstr "La API limitó las consultas: nuevo intento a las {retry}"
+
+#: lib/recommend.js:72
+msgid "All at the limit — {name} frees up in {time}"
+msgstr "Todas en el límite: {name} se libera en {time}"
+
+#: lib/recommend.js:80
+msgid "Session at {pct}%, but still the best option"
+msgstr "Sesión al {pct}%, pero sigue siendo la mejor opción"
+
+#: lib/recommend.js:82
+msgid "{pct}% of the week left and it resets in {time} — use it before you lose it"
+msgstr "{pct}% de la semana libre y se reinicia en {time}: úsala antes de perderla"
+
+#: lib/recommend.js:84
+msgid "Most free capacity ({plan})"
+msgstr "Mayor capacidad libre ({plan})"
+
+#: lib/recommend.js:84
+msgid "bigger plan"
+msgstr "plan mayor"
+
+#: lib/recommend.js:86
+msgid "Best balance between session and weekly quota"
+msgstr "Mejor equilibrio entre la sesión y la cuota semanal"
