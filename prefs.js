@@ -16,10 +16,10 @@ function tildify(path) {
 }
 
 export default class ClaudeUsagePreferences extends ExtensionPreferences {
-    fillPreferencesWindow(window) {
+    async fillPreferencesWindow(window) {
         const settings = this.getSettings();
         window._settings = settings;
-        initI18n(this);
+        await initI18n(this);
         window.set_default_size(640, 720);
         window.add(this._accountsPage(window, settings));
         window.add(this._generalPage(settings));

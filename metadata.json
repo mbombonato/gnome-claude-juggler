@@ -1,7 +1,7 @@
 {
   "uuid": "claude-juggler@mbombonato.github.io",
   "name": "Claude Juggler",
-  "description": "Juggle multiple Claude accounts (Pro, Max, Team) from the top bar: session and weekly usage for each one, and a suggestion of which account to use right now. Not affiliated with Anthropic.",
+  "description": "Juggle multiple Claude accounts (Pro, Max, Team) from the top bar: session and weekly usage for each one, and a suggestion of which account to use right now.\n\nThe \"Copy\" button puts the command to run Claude Code with an account (CLAUDE_CONFIG_DIR=… claude) on the clipboard.\n\nNot affiliated with Anthropic.",
   "shell-version": [
     "48",
     "49",

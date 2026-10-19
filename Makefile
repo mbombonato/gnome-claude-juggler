@@ -1,6 +1,6 @@
 UUID = claude-juggler@mbombonato.github.io
 
-.PHONY: install pack schemas translations pot reload
+.PHONY: install pack schemas translations pot reload lint
 
 schemas:
 	glib-compile-schemas schemas
@@ -26,3 +26,7 @@ pack: translations
 	mkdir -p dist build/no-po
 	gnome-extensions pack --force --podir=build/no-po --extra-source=lib --extra-source=icons --extra-source=base.css --extra-source=stylesheet-dark.css --extra-source=stylesheet-light.css --out-dir=dist .
 	python3 -c "import zipfile,pathlib; z=zipfile.ZipFile('dist/$(UUID).shell-extension.zip','a'); [z.write(p) for p in sorted(pathlib.Path('locale').rglob('*.mo'))]"
+
+# EGO's static analyzer. tree-sitter 0.26 makes shexli 0.2.1 segfault, so pin 0.25.
+lint: pack
+	uvx --python 3.12 --with "tree-sitter==0.25.2" shexli dist/$(UUID).shell-extension.zip

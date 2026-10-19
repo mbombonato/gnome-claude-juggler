@@ -9,7 +9,7 @@ import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
 import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
 
 import {AccountStore, displayName, isEnabled, migrateLegacyData, shortName} from './lib/accounts.js';
-import {_, _f, destroyI18n, initI18n} from './lib/i18n.js';
+import {_, _f, destroyI18n, initI18n, onLanguageChanged} from './lib/i18n.js';
 import {launchLogin, shellCommandFor} from './lib/launcher.js';
 import {UsageManager} from './lib/manager.js';
 import {formatDuration} from './lib/recommend.js';
@@ -218,7 +218,11 @@ class Indicator {
         this.menu = this.button.menu;
         // Whoever destroys the button (us, the panel, a cleanup), the manager and
         // its timers must go with it; an orphaned manager keeps polling the API.
-        this.button.connect('destroy', () => this.destroy());
+        this._buttonDestroyId = this.button.connect('destroy', () => {
+            // The button (and its menu) is already being torn down.
+            this._buttonGone = true;
+            this.destroy();
+        });
         this._ext = ext;
         this._settings = ext.getSettings();
         this._manager = new UsageManager(this._settings);
@@ -277,14 +281,18 @@ class Indicator {
             this._settings.connect('changed::panel-metrics', () => this._update()),
             this._settings.connect('changed::selected-account', () => this._update()),
             this._settings.connect('changed::popup-layout', () => this._update()),
-            this._settings.connect('changed::language', () => {
-                const header = this._buildHeader();
-                this._box.replace_child(this._header, header);
-                this._header = header;
-                this._update();
-            }),
         ];
-        this.menu.connect('open-state-changed', (_m, open) => {
+        // Rebuild the header too: its tooltips/accessible names are translated.
+        this._offLanguage = onLanguageChanged(() => {
+            const header = this._buildHeader();
+            this._box.replace_child(this._header, header);
+            // replace_child only unparents: destroy the old one so its tooltips'
+            // destroy handlers don't end up in the garbage collector.
+            this._header.destroy();
+            this._header = header;
+            this._update();
+        });
+        this._menuOpenId = this.menu.connect('open-state-changed', (_m, open) => {
             if (open) {
                 this._render();
                 this._manager.refreshForMenu();
@@ -462,7 +470,8 @@ class Indicator {
             // No close animation: the menu is destroyed right after.
             this.menu.close(false);
             const uuid = this._ext.uuid;
-            GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
+            this._quitId ||= GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
+                this._quitId = 0;
                 Main.extensionManager.disableExtension(uuid);
                 return GLib.SOURCE_REMOVE;
             });
@@ -651,6 +660,7 @@ class Indicator {
             x_expand: true,
         });
         titles.replace_child(nameLabel, entry);
+        nameLabel.destroy();
         const hint = titles.get_child_at_index(1);
         hint.text = _('Enter saves · Esc cancels · empty restores the email');
         hint.style_class = 'cu-hero-sub';
@@ -660,19 +670,29 @@ class Indicator {
             if (!this._renaming)
                 return;
             this._renaming = false;
+            this._disconnectRename();
             if (save)
                 this._manager.store.update(account.id, {label: entry.text.trim()});
             this._render();
         };
-        entry.clutter_text.connect('activate', () => finish(true));
-        entry.clutter_text.connect('key-press-event', (_a, event) => {
-            if (event.get_key_symbol() !== Clutter.KEY_Escape)
-                return Clutter.EVENT_PROPAGATE;
-            finish(false);
-            return Clutter.EVENT_STOP;
-        });
+        const text = entry.clutter_text;
+        this._renameSignals = [
+            [text, text.connect('activate', () => finish(true))],
+            [text, text.connect('key-press-event', (_a, event) => {
+                if (event.get_key_symbol() !== Clutter.KEY_Escape)
+                    return Clutter.EVENT_PROPAGATE;
+                finish(false);
+                return Clutter.EVENT_STOP;
+            })],
+        ];
         entry.clutter_text.set_selection(0, -1);
         entry.grab_key_focus();
+    }
+
+    _disconnectRename() {
+        for (const [actor, id] of this._renameSignals ?? [])
+            actor.disconnect(id);
+        this._renameSignals = null;
     }
 
     _accountRow(entry, rec) {
@@ -777,16 +797,41 @@ class Indicator {
         if (this._tickId)
             GLib.source_remove(this._tickId);
         this._tickId = 0;
+        if (this._quitId)
+            GLib.source_remove(this._quitId);
+        this._quitId = 0;
+        this._disconnectRename();
+        this._offLanguage();
         this._manager.disconnectChanged(this._changedCb);
         this._settingsIds.forEach(id => this._settings.disconnect(id));
+        this._settingsIds = [];
         this._manager.destroy();
-        this.button.destroy();
+        this._manager = null;
+        if (!this._buttonGone) {
+            this.menu.disconnect(this._menuOpenId);
+            this.button.disconnect(this._buttonDestroyId);
+            this._divider.destroy();
+            this._content.destroy();
+            this.button.destroy();
+        }
+        this._content = null;
+        this._box = null;
+        this._header = null;
+        this._body = null;
+        this._panelName = null;
+        this._divider = null;
+        this._segments = null;
+        this._layoutButtons = null;
+        this._refreshButton = null;
+        this.menu = null;
+        this.button = null;
+        this._settings = null;
     }
 }
 
 export default class ClaudeUsageExtension extends Extension {
     enable() {
-        initI18n(this);
+        initI18n(this).catch(e => logError(e, 'claude-juggler'));
         migrateLegacyData(new AccountStore(this.getSettings()));
         // A button left behind by an instance that never got disabled (e.g. one
         // whose enable() failed) would make addToStatusArea throw.

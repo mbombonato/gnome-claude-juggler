@@ -43,7 +43,9 @@ right now.
 # then log out and back in (on Wayland, GNOME Shell only loads new extensions at login)
 ```
 
-Or run `make pack` to build a `.zip` in `dist/` (for `gnome-extensions install`).
+Or run `make pack` to build a `.zip` in `dist/` (for `gnome-extensions install` or
+uploading to extensions.gnome.org), and `make lint` to check it with EGO's static
+analyzer, [Shexli](https://pypi.org/project/shexli/) (needs [uv](https://docs.astral.sh/uv/)).
 
 ## Accounts
 
