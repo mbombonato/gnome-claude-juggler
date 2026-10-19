@@ -6,6 +6,8 @@ Juggle several Claude accounts (Pro, Max, Team…) from the GNOME top bar: see t
 session (5h) and weekly usage of each one, and get a suggestion of which account to use
 right now.
 
+[<img src="https://raw.githubusercontent.com/andyholmes/gnome-shell-extensions-badge/master/get-it-on-ego.svg" alt="Get it on GNOME Extensions" height="100">](https://extensions.gnome.org/extension/11373/claude-juggler/)
+
 | Detailed menu | Compact menu |
 |---|---|
 | ![Detailed menu](docs/screenshots/menu-detailed.png) | ![Compact menu](docs/screenshots/menu-compact.png) |
@@ -39,6 +41,10 @@ right now.
 - English (default), Portuguese (Brazil) and Spanish.
 
 ## Installation
+
+The easiest way is from [GNOME Extensions](https://extensions.gnome.org/extension/11373/claude-juggler/).
+
+To install from source:
 
 ```sh
 ./install.sh   # symlinks this folder into ~/.local/share/gnome-shell/extensions and enables it
