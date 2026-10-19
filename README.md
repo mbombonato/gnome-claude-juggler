@@ -1,7 +1,8 @@
-# Claude Usage — GNOME Shell extension
+# Claude Juggler — GNOME Shell extension
 
-Tracks several Claude accounts (Pro, Max, Team…) from the GNOME top bar, shows the
-session (5h) and weekly usage of each one, and suggests which account to use right now.
+Juggle several Claude accounts (Pro, Max, Team…) from the GNOME top bar: see the
+session (5h) and weekly usage of each one, and get a suggestion of which account to use
+right now.
 
 | Detailed menu | Compact menu |
 |---|---|
@@ -31,16 +32,15 @@ session (5h) and weekly usage of each one, and suggests which account to use rig
 - Optional notification when the suggestion changes.
 - The ✕ in the menu header quits: it turns the extension off, stopping all polling.
   Turn it back on from the Extensions app or with
-  `gnome-extensions enable claude-usage@bombonato`.
+  `gnome-extensions enable claude-juggler@mbombonato.github.io`.
 - Light and dark themes, using the system accent color.
 - English (default), Portuguese (Brazil) and Spanish.
 
 ## Installation
 
 ```sh
-./install.sh          # symlinks this folder into ~/.local/share/gnome-shell/extensions
-# log out and back in (Wayland), then:
-gnome-extensions enable claude-usage@bombonato
+./install.sh   # symlinks this folder into ~/.local/share/gnome-shell/extensions and enables it
+# then log out and back in (on Wayland, GNOME Shell only loads new extensions at login)
 ```
 
 Or run `make pack` to build a `.zip` in `dist/` (for `gnome-extensions install`).
@@ -48,7 +48,7 @@ Or run `make pack` to build a `.zip` in `dist/` (for `gnome-extensions install`)
 ## Accounts
 
 Each account has its own session folder at
-`~/.local/share/claude-usage/accounts/<id>/`, used as `CLAUDE_CONFIG_DIR`.
+`~/.local/share/claude-juggler/accounts/<id>/`, used as `CLAUDE_CONFIG_DIR`.
 
 - **Add account** opens a terminal running `claude auth login` against the new folder.
   When the login finishes, the extension picks up `.credentials.json` by itself.
@@ -67,7 +67,7 @@ Each account has its own session folder at
 "Copy" in the menu copies something like:
 
 ```sh
-CLAUDE_CONFIG_DIR=~/.local/share/claude-usage/accounts/<id> claude
+CLAUDE_CONFIG_DIR=~/.local/share/claude-juggler/accounts/<id> claude
 ```
 
 Tip: create aliases (`alias claude-max='CLAUDE_CONFIG_DIR=… claude'`).
@@ -103,7 +103,7 @@ extension:
 - on HTTP 429, honors `Retry-After`, or otherwise waits 5 → 10 → 20 → 30 minutes on
   consecutive 429s, and never bypasses that wait;
 - shows when the API frees up in the menu footer;
-- keeps usage and rate-limit state in `~/.cache/claude-usage/state.json`, so logging in,
+- keeps usage and rate-limit state in `~/.cache/claude-juggler/state.json`, so logging in,
   unlocking the screen or reloading shows the last data right away and only fetches
   accounts whose data is older than the refresh interval (opening the menu reuses data
   younger than 5 minutes).
@@ -111,15 +111,15 @@ extension:
 To see every request and why it happened:
 
 ```sh
-gsettings set org.gnome.shell.extensions.claude-usage debug true
-journalctl --user -f | grep claude-usage
+gsettings set org.gnome.shell.extensions.claude-juggler debug true
+journalctl --user -f | grep claude-juggler
 ```
 
 ## Development: reloading without logging out
 
 GNOME Shell doesn't reload the code of an extension that is already loaded: GJS caches
 modules by file path. `dev-reload.sh` copies the extension to a new folder under
-`~/.cache/claude-usage-dev/` and loads it from there.
+`~/.cache/claude-juggler-dev/` and loads it from there.
 
 1. Once per session, turn on unsafe mode, which enables the Shell's D-Bus `Eval` method:
    `Alt+F2` → `lg` → **Evaluator** tab → `global.context.unsafe_mode = true`.
@@ -149,12 +149,12 @@ language. Weekday and month names follow the system date format (`LC_TIME`).
 To translate without the `gettext` package installed:
 
 ```sh
-make pot            # updates po/claude-usage.pot and the .po files (lists what's missing)
+make pot            # updates po/claude-juggler.pot and the .po files (lists what's missing)
 # edit po/<language>.po
-make translations   # compiles to locale/<language>/LC_MESSAGES/claude-usage.mo
+make translations   # compiles to locale/<language>/LC_MESSAGES/claude-juggler.mo
 ```
 
-For a new language, copy `po/claude-usage.pot` to `po/<code>.po` and add the code to
+For a new language, copy `po/claude-juggler.pot` to `po/<code>.po` and add the code to
 `LANGUAGES` in `lib/i18n.js`.
 
 ## Notes
@@ -162,5 +162,7 @@ For a new language, copy `po/claude-usage.pot` to `po/<code>.po` and add the cod
 - Tested on GNOME Shell 50 (Wayland).
 
 ## License
+
+Claude Juggler is an independent project, not affiliated with or endorsed by Anthropic.
 
 [GPL-2.0-or-later](LICENSE), like GNOME Shell itself.

@@ -1,14 +1,14 @@
 {
-  "uuid": "claude-usage@bombonato",
-  "name": "Claude Usage",
-  "description": "Track several Claude accounts: session (5h) and weekly usage for each one, plus a suggestion of which account to use right now.",
+  "uuid": "claude-juggler@mbombonato.github.io",
+  "name": "Claude Juggler",
+  "description": "Juggle multiple Claude accounts (Pro, Max, Team) from the top bar: session and weekly usage for each one, and a suggestion of which account to use right now. Not affiliated with Anthropic.",
   "shell-version": [
     "48",
     "49",
     "50"
   ],
-  "settings-schema": "org.gnome.shell.extensions.claude-usage",
-  "gettext-domain": "claude-usage",
-  "url": "https://github.com/mbombonato/gnome-claude-usage",
+  "settings-schema": "org.gnome.shell.extensions.claude-juggler",
+  "gettext-domain": "claude-juggler",
+  "url": "https://github.com/mbombonato/gnome-claude-juggler",
   "version-name": "0.1.0"
 }

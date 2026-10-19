@@ -1,4 +1,4 @@
-# Claude Usage — GNOME Shell extension
+# Claude Juggler — GNOME Shell extension
 #
 msgid ""
 msgstr ""
@@ -466,7 +466,7 @@ msgstr "não encontrado"
 msgid "Terminal command (e.g. ptyxis --new-window --)"
 msgstr "Comando do terminal (ex.: ptyxis --new-window --)"
 
-#: lib/accounts.js:35
+#: lib/accounts.js:62
 msgid "Not logged in"
 msgstr "Conta sem login"
 

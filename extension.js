@@ -8,7 +8,7 @@ import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
 import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
 
-import {displayName, isEnabled, shortName} from './lib/accounts.js';
+import {AccountStore, displayName, isEnabled, migrateLegacyData, shortName} from './lib/accounts.js';
 import {_, _f, destroyI18n, initI18n} from './lib/i18n.js';
 import {launchLogin, shellCommandFor} from './lib/launcher.js';
 import {UsageManager} from './lib/manager.js';
@@ -214,7 +214,7 @@ function avatar(account, styleClass = 'cu-avatar') {
 // without hitting "Type name ... is already registered".
 class Indicator {
     constructor(ext) {
-        this.button = new PanelMenu.Button(0.5, 'Claude Usage');
+        this.button = new PanelMenu.Button(0.5, 'Claude Juggler');
         this.menu = this.button.menu;
         // Whoever destroys the button (us, the panel, a cleanup), the manager and
         // its timers must go with it; an orphaned manager keeps polling the API.
@@ -225,7 +225,7 @@ class Indicator {
         this._lastRecommendedId = null;
         // Detail view opened from the compact layout (transient; the account comes from selected-account).
         this._detailOpen = false;
-        this._brandIcon = Gio.FileIcon.new(ext.dir.resolve_relative_path('icons/claude-usage.svg'));
+        this._brandIcon = Gio.FileIcon.new(ext.dir.resolve_relative_path('icons/claude-juggler.svg'));
         this.button.add_style_class_name('cu-panel-button');
 
         // Panel: ( ✱ name 62% │ 33% ) — each number with a thin progress line under it.
@@ -305,7 +305,7 @@ class Indicator {
 
     _copy(text) {
         St.Clipboard.get_default().set_text(St.ClipboardType.CLIPBOARD, text);
-        Main.notify('Claude Usage', _f('Copied: {text}', {text}));
+        Main.notify('Claude Juggler', _f('Copied: {text}', {text}));
     }
 
     _login(account) {
@@ -313,7 +313,7 @@ class Indicator {
         try {
             launchLogin(this._settings, account);
         } catch (e) {
-            Main.notifyError('Claude Usage', e.message);
+            Main.notifyError('Claude Juggler', e.message);
             return false;
         }
         return true;
@@ -379,7 +379,7 @@ class Indicator {
         const rec = this._manager.recommendation();
         const account = pinned ?? rec?.account;
         if (!account)
-            return 'Claude Usage';
+            return 'Claude Juggler';
         const tag = pinned ? _('Pinned to panel') : rec.blocked ? _('Next to free up') : _('Suggested');
         return `${displayName(account)} · ${tag}`;
     }
@@ -439,7 +439,7 @@ class Indicator {
     _buildHeader() {
         const header = new St.BoxLayout({style_class: 'cu-header'});
         header.add_child(new St.Icon({gicon: this._brandIcon, style_class: 'cu-header-icon', y_align: Clutter.ActorAlign.CENTER}));
-        header.add_child(label('Claude Usage', 'cu-title', {x_expand: true}));
+        header.add_child(label('Claude Juggler', 'cu-title', {x_expand: true}));
 
         const seg = new St.BoxLayout({style_class: 'cu-segmented', y_align: Clutter.ActorAlign.CENTER});
         this._layoutButtons = {};
@@ -787,6 +787,7 @@ class Indicator {
 export default class ClaudeUsageExtension extends Extension {
     enable() {
         initI18n(this);
+        migrateLegacyData(new AccountStore(this.getSettings()));
         // A button left behind by an instance that never got disabled (e.g. one
         // whose enable() failed) would make addToStatusArea throw.
         Main.panel.statusArea[this.uuid]?.destroy();

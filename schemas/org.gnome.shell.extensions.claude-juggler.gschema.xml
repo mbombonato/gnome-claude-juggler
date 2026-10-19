@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema id="org.gnome.shell.extensions.claude-usage" path="/org/gnome/shell/extensions/claude-usage/">
+  <schema id="org.gnome.shell.extensions.claude-juggler" path="/org/gnome/shell/extensions/claude-juggler/">
     <key name="accounts" type="s">
       <default>'[]'</default>
       <summary>Registered accounts (JSON)</summary>

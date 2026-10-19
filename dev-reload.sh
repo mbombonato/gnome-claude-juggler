@@ -12,9 +12,9 @@
 # turn it off when done (button in the notification, `false` in lg, or log out).
 set -e
 
-UUID=claude-usage@bombonato
+UUID=claude-juggler@mbombonato.github.io
 SRC=$(cd "$(dirname "$0")" && pwd)
-STAGE="${XDG_CACHE_HOME:-$HOME/.cache}/claude-usage-dev"
+STAGE="${XDG_CACHE_HOME:-$HOME/.cache}/claude-juggler-dev"
 # The Shell requires the folder name to be the UUID.
 NEW="$STAGE/$(date +%s%N)/$UUID"
 

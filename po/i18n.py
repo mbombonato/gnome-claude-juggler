@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Minimal translation tool that doesn't need the system gettext package.
 
-    python3 po/i18n.py extract   # updates po/claude-usage.pot and merges it into the .po files
-    python3 po/i18n.py compile   # builds locale/<lang>/LC_MESSAGES/claude-usage.mo
+    python3 po/i18n.py extract   # updates po/claude-juggler.pot and merges it into the .po files
+    python3 po/i18n.py compile   # builds locale/<lang>/LC_MESSAGES/claude-juggler.mo
 
 Extracts _('...') and _f('...', ...) calls with single-quoted strings.
 """
@@ -12,7 +12,7 @@ import struct
 import sys
 from pathlib import Path
 
-DOMAIN = 'claude-usage'
+DOMAIN = 'claude-juggler'
 ROOT = Path(__file__).resolve().parent.parent
 PO_DIR = ROOT / 'po'
 SOURCES = ['extension.js', 'prefs.js', 'lib/*.js']
@@ -61,7 +61,7 @@ def read_po(path):
 
 
 def write_po(path, messages, translations, lang):
-    out = ['# Claude Usage — GNOME Shell extension', '#', 'msgid ""', 'msgstr ""']
+    out = ['# Claude Juggler — GNOME Shell extension', '#', 'msgid ""', 'msgstr ""']
     header = translations.get('', HEADER)
     if lang and 'Language:' not in header:
         header += f'Language: {lang}\n'

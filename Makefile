@@ -1,11 +1,11 @@
-UUID = claude-usage@bombonato
+UUID = claude-juggler@mbombonato.github.io
 
 .PHONY: install pack schemas translations pot reload
 
 schemas:
 	glib-compile-schemas schemas
 
-# Updates po/claude-usage.pot and merges it into the .po files (lists what's missing)
+# Updates po/claude-juggler.pot and merges it into the .po files (lists what's missing)
 pot:
 	python3 po/i18n.py extract
 
